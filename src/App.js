@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './Footer.css';
 import logo from './images/Используются везде/logo.png';
 import Slider from 'react-slick'; 
 import icon1 from './images/Используются везде/user-icon.png';
@@ -14,6 +15,7 @@ import Sistema from './images/main/Система накопительных с�
 import BigAssortiment from './images/main/Большой ассортимент.png';
 import Good from './images/main/Хорошее качество.png';
 import Bonus from './images/main/Система бонусов.png';
+import qr from './images/Используются везде/qr-code.png';
 
 function App() {
     const settings = {
@@ -130,8 +132,44 @@ function App() {
     </div>
 </div>
 
-<footer>
-    
+<footer className="footer">
+ 
+  <div className="footer-logo">
+    <img src={logo} alt="logofooter" />
+  </div>
+  <div className="footer-content">
+    <div className="footer-section">
+      <h4>Страницы</h4>
+      <ul>
+        <li><a href="#">Главная</a></li>
+        <li><a href="#">Каталог</a></li>
+        <li><a href="#">Корзина</a></li>
+        <li><a href="#">Избранное</a></li>
+        <li><a href="#">Профиль</a></li>
+        <li><a href="#">Доставка</a></li>
+        <li><a href="#">Покупки</a></li>
+      </ul>
+    </div>
+    <div className="footer-section">
+      <h4>Услуги</h4>
+      <ul>
+        <li><a href="#">Доставка</a></li>
+        <li><a href="#">Служба поддержки</a></li>
+      </ul>
+    </div>
+    <div className="footer-section">
+      <h4>Документация</h4>
+      <ul>
+        <li><a href="#">Условия доставки</a></li>
+        <li><a href="#">Условия хранения</a></li>
+      </ul>
+    </div>
+  </div>
+  <div className="footer-qr">
+    <div className="qr-code">
+      <img src={qr} alt="QR Code" />
+    </div>
+  </div>
 </footer>
         </div>
     );
