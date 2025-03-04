@@ -1,8 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import './App.css';
 import './Footer.css';
-import Personal from './personal.js'; // Make sure the path is correct
+import Personal from './personal.js'; 
 import logo from './images/Используются везде/logo.png';
 import Slider from 'react-slick'; 
 import icon1 from './images/Используются везде/user-icon.png';
@@ -41,13 +41,13 @@ function App() {
     ];
 
     return (
-        <Router>
+        
             <div className="App">
                 <header className="header">
                     <img src={logo} alt="Логотип" className="logo" />
                     <input style={{ width: '500px' }} placeholder='Название товара' type='text' />
                     <div className="button-container">
-                        <Link to="/personal">
+                        <Link to="/personal"> 
                             <button className="icon-button"><img alt='user' src={icon1} /></button>
                         </Link>
                         <button className="icon-button"><img alt='love' src={icon2} /></button>
@@ -77,7 +77,7 @@ function App() {
                             </div>
                             <div>
                                 <img src={slide3} alt='Слайд 3' className="slider-image" />
-                            </div>
+                                </div>
                         </Slider>
                     </div>
                 </section>
@@ -176,14 +176,12 @@ function App() {
                 </footer>
 
                 <Routes>
-                <Route path="/personal" element={<Personal />} />
-
-                    <Route path="/" exact>
-                    </Route>
+                    <Route path="/" element={<div>Главная страница</div>} />
+                    <Route path="/personal" element={<Personal />} /> 
                 </Routes>
             </div>
-        </Router>
+        
     );
 }
-//asahjgiaoohgianuan
+
 export default App;
