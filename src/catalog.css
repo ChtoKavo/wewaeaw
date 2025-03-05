@@ -1,0 +1,122 @@
+.new-catalog-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 20px;
+    width: 100%;
+    padding: 20px;
+    background-color: #F5F9E4;
+}
+
+.new-search-input {
+    width: 350px;
+}
+
+.new-catalog-sidebar {
+    background-color: #CACCC1; 
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    border-radius: 5px; 
+}
+
+.new-catalog-sidebar h2 {
+    margin-top: 0;
+    color: #000A02; 
+    font-family: 'Karla', sans-serif; 
+}
+
+.new-catalog-sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.new-catalog-sidebar ul li {
+    margin: 10px 0;
+}
+
+.new-catalog-sidebar ul li a {
+    text-decoration: none;
+    color: #000A02; 
+    font-weight: bold;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    display: block;
+    transition: background-color 0.3s, color 0.3s; 
+}
+
+.new-catalog-sidebar ul li a:hover {
+    background-color: #000A02; 
+    color: #F5F9E4; 
+}
+
+.new-product-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    text-align: center;
+    background-color: #F9FBEF;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+    min-height: 400px; 
+    display: flex;
+    position: relative;
+    min-width: 300px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between; 
+}
+
+.new-product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.new-product-card img {
+    max-width: 100%;
+    height: 200px;
+    border-radius: 5px;
+}
+
+.new-product-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.new-product-card h3 {
+    margin: 10px 0;
+    color: #000A02;
+    font-family: 'Karla', sans-serif;
+    font-size: 18px;
+}
+
+.new-product-card p {
+    color: #333;
+    font-family: 'Karla', sans-serif;
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.new-basket-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    position: absolute; 
+    bottom: 10px; 
+    right: 10px; 
+    opacity: 1; 
+    visibility: visible; 
+}
+
+.new-basket-button img {
+    width: 30px; 
+    height: 30px;
+}
+
+.new-product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+} 

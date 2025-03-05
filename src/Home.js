@@ -16,6 +16,8 @@ import Good from './images/main/Хорошее качество.png';
 import Bonus from './images/main/Система бонусов.png';
 import qr from './images/Используются везде/qr-code.png';
 import './App.css';
+import arrow from './images/Используются везде/Arrow.png'
+
 
 import './Footer.css';
 
@@ -81,29 +83,47 @@ function Home() {
                 </div>
             </section>
             <div className='new-products'>
-                <h1 className='h1-new'> Новинки </h1>
-                <div className="product-grid">
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
-            </div>
-            <div className='new-products'>
-                <h1 className='h1-new'> Топ продаж </h1>
-                <div className="product-grid">
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
-            </div>
-            <div className='new-products'>
-                <h1 className='h1-new'> Специально для вас </h1>
-                <div className="product-grid">
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
-            </div>
+    <div className="new-products-header">
+        <h1 className='h1-new'> Новинки </h1>
+        <div className="more-link-container">
+            <Link to="/catalog" className="more-link">Еще</Link>
+            <img src={arrow} alt='Стрелка' className="arrow-icon" />
+        </div>
+    </div>
+    <div className="product-grid">
+        {products.map(product => (
+            <ProductCard key={product.id} product={product} />
+        ))}
+    </div>
+</div>
+<div className='new-products'>
+    <div className="new-products-header">
+        <h1 className='h1-new'> Новинки </h1>
+        <div className="more-link-container">
+            <Link to="/catalog" className="more-link">Еще</Link>
+            <img src={arrow} alt='Стрелка' className="arrow-icon" />
+        </div>
+    </div>
+    <div className="product-grid">
+        {products.map(product => (
+            <ProductCard key={product.id} product={product} />
+        ))}
+    </div>
+</div>
+<div className='new-products'>
+    <div className="new-products-header">
+        <h1 className='h1-new'> Новинки </h1>
+        <div className="more-link-container">
+            <Link to="/novelties" className="more-link">Еще</Link>
+            <img src={arrow} alt='Стрелка' className="arrow-icon" />
+        </div>
+    </div>
+    <div className="product-grid">
+        {products.map(product => (
+            <ProductCard key={product.id} product={product} />
+        ))}
+    </div>
+</div>
 
             <div className="about-section">
                 <h1>О нас</h1>
@@ -176,5 +196,4 @@ function Home() {
         </div>
     );
 }
-
 export default Home;
