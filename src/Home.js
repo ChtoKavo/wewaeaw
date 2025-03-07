@@ -54,7 +54,9 @@ function Home() {
                     <Link to="/favourites" className=''>
                     <button className="icon-button"><img alt='love' src={icon2} /></button>
                     </Link>
+                    <Link to='/basket' className=''>
                     <button className="icon-button"><img alt='store' src={icon3} /></button>
+                    </Link>
                 </div>
             </header>
             <nav className="nav">

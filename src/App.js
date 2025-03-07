@@ -4,6 +4,7 @@ import Home from './Home';
 import Personal from './personal'; 
 import Catalog from './catalog'
 import Favourites from './Favourites';
+import Basket from './basket';
 
 function App() {
     return (
@@ -12,6 +13,7 @@ function App() {
             <Route path="/personal" element={<Personal />} />
             <Route path="/catalog" element = {<Catalog />} />
             <Route path="/favourites" element = {<Favourites />} />
+            <Route path="/basket" element = {<Basket />} />
         </Routes>
     );
 }
