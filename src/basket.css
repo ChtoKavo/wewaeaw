@@ -1,4 +1,4 @@
-.basket-container {
+ .basket-container {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -11,6 +11,11 @@
 
 .basket-items {
     width: 60%;
+}
+
+.h2aboba
+{
+    background-color: gray;
 }
 
 .basket-item {
@@ -53,9 +58,7 @@
 
 .payment-buttons {
     display: flex;
-    width: 30%;
-    justify-content: center;
-    align-items: center;
+    width: 100%;
     flex-direction: column;
     gap: 10px;
 }
@@ -64,9 +67,8 @@
     padding: 10px;
     border: none;
     border-radius: 4px;
-    background-color: #4CAF50;
-    color: white;
     cursor: pointer;
+    background: transparent;
 }
 
 .pay-button {

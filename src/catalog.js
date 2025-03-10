@@ -122,16 +122,16 @@ function Catalog() {
                 </aside>
                 <main className="new-product-grid">
                     {Array.from({ length: 12 }).map((_, index) => (
-                        <div key={index} className="new-product-card">
-                            <img src={`https://avatars.mds.yandex.net/i?id=872dc79fb43f6d5d72c2024dff7bf222-5910939-images-thumbs&n=13`} alt={`Товар ${index + 1}`} />
-                            <div className="new-product-content">
-                                <h3>Товар {index + 1}</h3>
-                                <p>Описание товара {index + 1}</p>
-                            </div>
-                            <button className="new-basket-button">
-                                <img src={basket} alt="Корзина" />
-                            </button>
+                        <Link to={`/product/${index + 1}`} className="new-product-card">
+                        <img src={`https://avatars.mds.yandex.net/i?id=872dc79fb43f6d5d72c2024dff7bf222-5910939-images-thumbs&n=13`} alt={`Товар ${index + 1}`} />
+                        <div className="new-product-content">
+                            <h3>Товар {index + 1}</h3>
+                            <p>Описание товара {index + 1}</p>
                         </div>
+                        <button className="new-basket-button">
+                            <img src={basket} alt="Корзина" />
+                        </button>
+                    </Link>
                     ))}
                 </main>
             </div>

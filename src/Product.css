@@ -1,0 +1,161 @@
+
+
+.container {
+    
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #F5F9E4;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 32px;
+    color: #333;
+}
+
+.age-category {
+    font-size: 25px;
+    color: #666;
+}
+
+.game-type {
+    font-size: 25px;
+    color: #888;
+}
+
+.game-details {
+    font-size: 25px;
+    color: #555;
+    margin: 10px 0;
+}
+
+.star-rating {
+    display: flex;
+}
+
+.star {
+    font-size: 24px; 
+    color: #FFD700; 
+    margin-right: 5px;
+}
+
+.star.filled {
+    color: #FFD700; 
+}
+
+
+.price {
+    font-size: 32px;
+    color: #000;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.product-info {
+    display: flex;
+    align-items: flex-start; 
+}
+
+.product-image {
+    width: 500px; /* Установите фиксированную ширину */
+    height: auto; /* Высота будет автоматически подстраиваться */
+    margin-right: 20px; 
+}
+
+
+.product-details-column {
+    display: flex;
+    flex-direction: column; 
+    justify-content: flex-start; 
+    position: relative;
+    left: 700px;
+}
+
+.game-type, .game-details {
+    display: flex;
+    align-items: center; /* Центрирует иконку и текст по вертикали */
+    margin: 10px 0; /* Отступ между строками */
+}
+
+.icon {
+    margin-right: 8px; /* Отступ между иконкой и текстом */
+    width: 20px; /* Установите фиксированную ширину для иконок */
+    height: auto; /* Высота будет автоматически подстраиваться */
+}
+
+
+
+.add-to-cart {
+    background-color: #28a745;
+    color: #fff;
+    padding: 20px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.description {
+    font-size: 20px;
+    color: #333;
+    margin: 20px 0;
+}
+
+.reviews {
+    margin-top: 30px;
+    padding: 0px 0px 30px;
+}
+
+.review {
+    border-top: 1px solid #ddd;
+    padding: 10px 0;
+    margin-top: 20px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #333;
+}
+
+.review-author-container {
+    display: flex;
+    align-items: center; /* Центрирует аватарку и текст по вертикали */
+}
+
+.review-avatar {
+    width: 40px; /* Установите фиксированную ширину для аватарок */
+    height: 40px; /* Установите фиксированную высоту для аватарок */
+    border-radius: 50%; /* Сделает аватарки круглыми */
+    margin-right: 10px; /* Отступ между аватаркой и текстом */
+}
+
+
+.review-date {
+    color: #888;
+    font-size: 12px;
+}
+
+.review-text {
+    color: #555;
+    margin-top: 5px;
+}
+
+.write-review {
+    margin-top: 20px;
+}
+
+.write-review textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+}
+
+.write-review button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+}
