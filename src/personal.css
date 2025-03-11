@@ -1,0 +1,129 @@
+.container {
+    display: flex; /* Используем flexbox для расположения прямоугольника и кнопок */
+    flex-direction: column; /* Вертикальное расположение элементов */
+    align-items: center; /* Центрирование по горизонтали */
+    height: 100vh;
+    background-color: #F5F9E4; /* Цвет фона страницы */
+    padding-left: 240px; /* Отступ слева на 240px */
+}
+
+.rectangle {
+    width: 710px;
+    height: 540px;
+    background-color: #F9FBEF; /* Цвет фона прямоугольника */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Отступ сверху */
+    display: flex;
+    flex-direction: column; /* Вертикальное расположение элементов внутри прямоугольника */
+    justify-content: center; /* Центрирование по вертикали */
+    align-items: center; /* Центрирование по горизонтали */
+    position: relative; /* Для позиционирования инпута */
+}
+.main-content {
+    display: flex; /* Используем flexbox для выравнивания */
+    justify-content: space-between; /* Разделяем пространство между элементами */
+    width: 100%; /* Занимает всю ширину контейнера */
+    margin-top: 20px; /* Убедитесь, что отступ сверху не слишком большой */
+}
+.avatar-input {
+    position: absolute; /* Позиционирование относительно родителя */
+    top: 10px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+    width: 100px; /* Ширина круга */
+    height: 100px; /* Высота круга */
+    border-radius: 50%; /* Круглая форма */
+    overflow: hidden; /* Скрыть часть изображения, выходящую за пределы круга */
+    cursor: pointer; /* Указатель при наведении */
+    border: 2px solid #ccc; /* Граница круга */
+    background-color: #e0e0e0; /* Цвет фона круга */
+}
+
+.avatar-input img {
+    width: 100%; /* Заполнение круга изображением */
+    height: 100%; /* Заполнение круга изображением */
+    object-fit: cover; /* Сохранение пропорций изображения */
+}
+
+.input {
+    display: none; /* Скрыть стандартный инпут */
+}
+
+.inner-container {
+    margin-top: 10px; /* Отступ между кнопками */
+}
+
+.button {
+    width: 466px; /* Ширина кнопок */
+    height: 60px; /* Высота кнопок */
+    padding: 0; /* Убираем отступы */
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #CACCC1;
+    color: white; /* Цвет текста */
+    border: none; /* Без границы */
+    border-radius: 4px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход для цвета фона */
+}
+.button-container {
+    display: flex; /* Используем flexbox для выравнивания */
+    flex-direction: column; /* Вертикальное расположение кнопок */
+    gap: 10px; /* Промежуток между кнопками */
+    margin-top: 20px; /* Отступ сверху */
+}
+.button:hover, .side-button:hover {
+    background-color: #B0B3A1; /* Темнее цвет кнопок при наведении */
+}
+
+.side-buttons {
+    display: flex; /* Выравнивание кнопок в строку */
+    gap: 10px; /* Промежуток между кнопками */
+    margin-top: 10px; /* Отступ сверху, если нужно */
+    margin-left: -20px;
+}
+
+.side-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #CACCC1; /* Цвет кнопок */
+    color: white; /* Цвет текста */
+    border: none; /* Без границы */
+    border-radius: 4px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход для цвета фона */
+    width: 223px; /* Ширина кнопок */
+    height: 60px; /* Высота кнопок */
+}
+.error-message {
+    color: red; /* Красный цвет для сообщений об ошибках */
+    margin-top: 10px; /* Отступ сверху */
+    font-size: 14px; /* Размер шрифта для сообщений об ошибках */
+}
+
+.header {
+    font-size: 24px; /* Размер шрифта заголовка */
+    margin: 250px 0 0 0; /* Уберите верхний отступ или уменьшите его */
+    text-align: left; /* Выравнивание заголовка по левому краю */
+    width: 100%; /* Убедитесь, что заголовок занимает всю ширину */
+    padding-left: 20px; /* Добавьте отступ слева, если нужно */
+}
+
+
+.button-container {
+    display: flex; /* Выравнивание кнопок в строку */
+    gap: 10px; /* Промежуток между кнопками */
+    margin-top: 20px; /* Отступ сверху */
+}
+.small-rectangle-container {
+    display: flex; /* Выравнивание прямоугольников в строку */
+    gap: 10px; /* Промежуток между прямоугольниками */
+    margin: 20px 0; /* Отступ сверху и снизу */
+}
+
+.small-rectangle {
+    width: 223px; /* Ширина маленького прямоугольника */
+    height: 60px; /* Высота маленького прямоугольника */
+    background-color: #CACCC1; /* Цвет маленького прямоугольника */
+}
+
+
