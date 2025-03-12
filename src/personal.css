@@ -1,0 +1,107 @@
+ .profile-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    height: 100vh;
+    background-color: #F5F9E4; 
+    padding-left: 240px; 
+}  
+
+ .profile-box {
+    width: 710px;
+    height: 540px;
+    background-color: #F9FBEF; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    position: relative; 
+} 
+
+    .profile-content {
+        display: flex; 
+        justify-content: space-between; 
+        width: 100%; 
+        margin-top: 20px; 
+    } 
+
+.avatar-upload {
+    position: absolute; 
+    top: 10px; /* Отступ сверху */
+    left: 10px; /* Отступ слева */
+    width: 100px; /* Ширина круга */
+    height: 100px; /* Высота круга */
+    border-radius: 50%; /* Круглая форма */
+    overflow: hidden; /* Скрыть часть изображения, выходящую за пределы круга */
+    cursor: pointer; /* Указатель при наведении */
+    border: 2px solid #ccc; /* Граница круга */
+    background-color: #e0e0e0; /* Цвет фона круга */
+}
+
+.avatar-upload img {
+    width: 100%; /* Заполнение круга изображением */
+    height: 100%; /* Заполнение круга изображением */
+    object-fit: cover; /* Сохранение пропорций изображения */
+} 
+.file-input {
+    display: none; /* Скрыть стандартный инпут */
+}
+
+.button-box {
+    margin-top: 10px; /* Отступ между кнопками */
+}
+
+
+.action-button:hover, .side-action-button:hover {
+    background-color: #B0B3A1; /* Темнее цвет кнопок при наведении */
+}
+
+.side-actions {
+    display: flex; /* Выравнивание кнопок в строку */
+    gap: 10px; /* Промежуток между кнопками */
+    margin-top: 10px; /* Отступ сверху, если нужно */
+    margin-left: -20px;
+}
+
+.side-action-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #CACCC1; /* Цвет кнопок */
+    color: white; /* Цвет текста */
+    border: none; /* Без границы */
+    border-radius: 4px; /* Закругленные углы */
+    transition: background-color 0.3s; /* Плавный переход для цвета фона */
+    width: 223px; /* Ширина кнопок */
+    height: 60px; /* Высота кнопок */
+}
+
+.error-text {
+    color: red; /* Красный цвет для сообщений об ошибках */
+    margin-top: 10px; /* Отступ сверху */
+    font-size: 14px; /* Размер шрифта для сообщений об ошибках */
+}
+
+.profile-header {
+    font-size: 24px; 
+    margin: 250px 0 0 0; 
+    text-align: left; 
+    width: 100%; 
+    padding-left: 20px; 
+}
+
+.action-buttons {
+    display: flex; 
+    gap: 10px; 
+    margin-top: 20px; 
+}
+
+.small-box {
+    width: 223px; 
+    height: 60px; 
+    background-color: #CACCC1; 
+}
+
