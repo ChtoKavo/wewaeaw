@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom'; // Изменено на useNavigate
 import Slider from 'react-slick';
 import ProductCard from './ProductCard';
 import logo from './images/Используются везде/logo.png';
@@ -16,12 +16,23 @@ import Good from './images/main/Хорошее качество.png';
 import Bonus from './images/main/Система бонусов.png';
 import qr from './images/Используются везде/qr-code.png';
 import './App.css';
-import arrow from './images/Используются везде/Arrow.png'
-
-
+import arrow from './images/Используются везде/Arrow.png';
 import './Footer.css';
 
 function Home() {
+    const [isAuthenticated, setIsAuthenticated] = useState(false); // состояние для аутентификации
+    const navigate = useNavigate(); // заменено на useNavigate
+
+    const handleNavigation = (e) => {
+        // Проверяем, является ли целевой элемент полем поиска
+        if (e.target.tagName !== 'INPUT') {
+            if (!isAuthenticated) {
+                e.preventDefault(); // предотвращаем стандартное поведение ссылки
+                navigate('/login'); // перенаправляем на страницу входа
+            }
+        }
+    };
+
     const settings = {
         dots: true,
         infinite: true,
@@ -43,7 +54,7 @@ function Home() {
     ];
 
     return (
-        <div className="App">
+        <div className="App" onClick={handleNavigation}>
             <header className="header">
                 <img src={logo} alt="Логотип" className="logo" />
                 <input style={{ width: '500px' }} placeholder='Название товара' type='text' />
@@ -52,10 +63,10 @@ function Home() {
                         <img alt='user' src={icon1} />
                     </Link>
                     <Link to="/favourites" className=''>
-                    <button className="icon-button"><img alt='love' src={icon2} /></button>
+                        <button className="icon-button"><img alt='love' src={icon2} /></button>
                     </Link>
                     <Link to='/basket' className=''>
-                    <button className="icon-button"><img alt='store' src={icon3} /></button>
+                        <button className="icon-button"><img alt='store' src={icon3} /></button>
                     </Link>
                 </div>
             </header>
@@ -75,7 +86,7 @@ function Home() {
                 <div className="slider-container">
                     <Slider {...settings}>
                         <div>
-                        <img src={slide1} alt='Слайд 1' className="slider-image" />
+                            <img src={slide1} alt='Слайд 1' className="slider-image" />
                         </div>
                         <div>
                             <img src={slide2} alt='Слайд 2' className="slider-image" />
@@ -87,47 +98,47 @@ function Home() {
                 </div>
             </section>
             <div className='new-products'>
-    <div className="new-products-header">
-        <h1 className='h1-new'> Новинки </h1>
-        <div className="more-link-container">
-            <Link to="/catalog" className="more-link">Еще</Link>
-            <img src={arrow} alt='Стрелка' className="arrow-icon" />
-        </div>
-    </div>
-    <div className="product-grid">
-        {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-        ))}
-    </div>
-</div>
-<div className='new-products'>
-    <div className="new-products-header">
-        <h1 className='h1-new'> Новинки </h1>
-        <div className="more-link-container">
-            <Link to="/catalog" className="more-link">Еще</Link>
-            <img src={arrow} alt='Стрелка' className="arrow-icon" />
-        </div>
-    </div>
-    <div className="product-grid">
-        {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-        ))}
-    </div>
-</div>
-<div className='new-products'>
-    <div className="new-products-header">
-        <h1 className='h1-new'> Новинки </h1>
-        <div className="more-link-container">
-            <Link to="/novelties" className="more-link">Еще</Link>
-            <img src={arrow} alt='Стрелка' className="arrow-icon" />
-        </div>
-    </div>
-    <div className="product-grid">
-        {products.map(product => (
-            <ProductCard key={product.id} product={product} />
-        ))}
-    </div>
-</div>
+                <div className="new-products-header">
+                    <h1 className='h1-new'> Новинки </h1>
+                    <div className="more-link-container">
+                        <Link to="/catalog" className="more-link">Еще</Link>
+                        <img src={arrow} alt='Стрелка' className="arrow-icon" />
+                    </div>
+                </div>
+                <div className="product-grid">
+                    {products.map(product => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
+            </div>
+            <div className='new-products'>
+                <div className="new-products-header">
+                    <h1 className='h1-new'> Новинки </h1>
+                    <div className="more-link-container">
+                        <Link to="/catalog" className="more-link">Еще</Link>
+                        <img src={arrow} alt='Стрелка' className="arrow-icon" />
+                    </div>
+                </div>
+                <div className="product-grid">
+                    {products.map(product => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
+            </div>
+            <div className='new-products'>
+                <div className="new-products-header">
+                    <h1 className='h1-new'> Новинки </h1>
+                    <div className="more-link-container">
+                        <Link to="/novelties" className="more-link">Еще</Link>
+                        <img src={arrow} alt='Стрелка' className="arrow-icon" />
+                    </div>
+                </div>
+                <div className="product-grid">
+                    {products.map(product => (
+                        <ProductCard key={product.id} product={product} />
+                    ))}
+                </div>
+            </div>
 
             <div className="about-section">
                 <h1>О нас</h1>
@@ -167,37 +178,40 @@ function Home() {
                     <div className="footer-section">
                         <h4>Страницы</h4>
                         <ul>
-                            <li><a href="#">Главная</a></li>
-                            <li><a href="#">Каталог</a></li>
-                            <li><a href="#">Корзина</a></li>
-                            <li><a href="#">Избранное</a></li>
-                            <li><a href="#">Профиль</a></li>
-                            <li><a href="#">Доставка</a></li>
-                            <li><a href="#">Покупки</a></li>
+                            <li><Link to="/">Главная</Link></li>
+                            <li><Link to="/catalog">Каталог</Link></li>
+                            <li><Link to="/basket">Корзина</Link></li>
+                            <li><Link to="/favourites">Избранное</Link></li>
+                            <li><Link to="/personal">Профиль</Link></li>
+                            <li><Link to="/delivery">Доставка</Link></li>
+                            <li><Link to="/purchases">Покупки</Link></li>
                         </ul>
                     </div>
                     <div className="footer-section">
                         <h4>Услуги</h4>
                         <ul>
-                            <li><a href="#">Доставка</a></li>
-                            <li><a href="#">Служба поддержки</a></li>
+                            <li><Link to="/delivery">Доставка</Link></li>
+                            <li><Link to="/support">Служба поддержки</Link></li>
                         </ul>
                     </div>
                     <div className="footer-section">
                         <h4>Документация</h4>
                         <ul>
-                            <li><a href="#">Условия доставки</a></li>
-                            <li><a href="#">Условия хранения</a></li>
+                            <li><Link to="/delivery-terms">Условия доставки</Link></li>
+                            <li><Link to="/storage-terms">Условия хранения</Link></li>
                         </ul>
                     </div>
                 </div>
                 <div className="footer-qr">
                     <div className="qr-code">
-                    <img src={qr} alt="QR Code" />
+                        <img src={qr} alt="QR Code" />
                     </div>
                 </div>
             </footer>
         </div>
     );
 }
+
 export default Home;
+
+
