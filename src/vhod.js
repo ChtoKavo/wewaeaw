@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './vhod.css';
 import vhod from './images/Используются везде/vhod.png';
 
 const App = () => {
@@ -20,6 +20,9 @@ const App = () => {
             </div>
             <button className='buttlol' type="submit">Войти</button>
           </form>
+          <div className="registration-link">
+            <p>Нет аккаунта? <a href="/Reg">Регистрация</a></p>
+          </div>
         </div>
       </div>
     </div>
