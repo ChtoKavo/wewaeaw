@@ -27,15 +27,19 @@ function Catalog() {
 
     return (
         <div className='App'>
-            <header className="header">
+             <header className="header">
                 <img src={logo} alt="Логотип" className="logo" />
-                <input className="search-input" placeholder='Название товара' type='text' />
+                <input style={{ width: '500px' }} placeholder='Название товара' type='text' />
                 <div className="button-container">
                     <Link to="/personal" className="icon-button">
                         <img alt='user' src={icon1} />
                     </Link>
-                    <button className="icon-button"><img alt='love' src={icon2} /></button>
-                    <button className="icon-button"><img alt='store' src={icon3} /></button>
+                    <Link to="/favourites" className=''>
+                        <button className="icon-button"><img alt='love' src={icon2} /></button>
+                    </Link>
+                    <Link to='/basket' className=''>
+                        <button className="icon-button"><img alt='store' src={icon3} /></button>
+                    </Link>
                 </div>
             </header>
             <nav className="nav">
@@ -47,7 +51,7 @@ function Catalog() {
                     <li><a href="#classic">Классические</a></li>
                     <li><a href="#plans">Планы</a></li>
                     <li><a href="#strategic">Стратегические</a></li>
-                    <li><a href="#sales">Хиты продаж</a></li>
+                    <li><a href="#sales">Хаты продаж</a></li>
                 </ul>
             </nav>
             <div className="new-catalog-container">

@@ -1,4 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import logo from './images/Используются везде/logo.png';
+import icon1 from './images/Используются везде/user-icon.png';
+import icon2 from './images/Используются везде/love-icon.png';
+import icon3 from './images/Используются везде/store-icon.png';
+import qr from './images/Используются везде/qr-code.png';
 
 const Profile = () => {
   const [userAvatar, setUserAvatar] = useState(null);
@@ -100,6 +106,33 @@ const Profile = () => {
 
   return (
     <div style={styles.profileContainer}>
+       <header className="header">
+                <img src={logo} alt="Логотип" className="logo" />
+                <input style={{ width: '500px' }} placeholder='Название товара' type='text' />
+                <div className="button-container">
+                    <Link to="/personal" className="icon-button">
+                        <img alt='user' src={icon1} />
+                    </Link>
+                    <Link to="/favourites" className=''>
+                        <button className="icon-button"><img alt='love' src={icon2} /></button>
+                    </Link>
+                    <Link to='/basket' className=''>
+                        <button className="icon-button"><img alt='store' src={icon3} /></button>
+                    </Link>
+                </div>
+            </header>
+            <nav className="nav">
+                <ul>
+                    <li><a href="#veterinary">Ветеринарные</a></li>
+                    <li><a href="#adults">Для взрослых</a></li>
+                    <li><a href="#family">Для всей семьи</a></li>
+                    <li><a href="#children">Для детей</a></li>
+                    <li><a href="#classic">Классические</a></li>
+                    <li><a href="#plans">Планы</a></li>
+                    <li><a href="#strategic">Стратегические</a></li>
+                    <li><a href="#sales">Хаты продаж</a></li>
+                </ul>
+            </nav>
       <h1 style={styles.profileHeader}>Личный кабинет</h1>
       <div style={styles.profileContent}>
         <div style={styles.profileBox}>
@@ -136,6 +169,44 @@ const Profile = () => {
           </button>
         </div>
       </div>
+      <footer className="footer">
+                      <div className="footer-logo">
+                          <img src={logo} alt="logofooter" />
+                      </div>
+                      <div className="footer-content">
+                          <div className="footer-section">
+                              <h4>Страницы</h4>
+                              <ul>
+                                  <li><a href="#">Главная</a></li>
+                                  <li><a href="#">Каталог</a></li>
+                                  <li><a href="#">Корзина</a></li>
+                                  <li><a href="#">Избранное</a></li>
+                                  <li><a href="#">Профиль</a></li>
+                                  <li><a href="#">Доставка</a></li>
+                                  <li><a href="#">Покупки</a></li>
+                              </ul>
+                          </div>
+                          <div className="footer-section">
+                              <h4>Услуги</h4>
+                              <ul>
+                                  <li><a href="#">Доставка</a></li>
+                                  <li><a href="#">Служба поддержки</a></li>
+                              </ul>
+                          </div>
+                          <div className="footer-section">
+                              <h4>Документация</h4>
+                              <ul>
+                                  <li><a href="#">Условия доставки</a></li>
+                                  <li><a href="#">Условия хранения</a></li>
+                              </ul>
+                          </div>
+                      </div>
+                      <div className="footer-qr">
+                          <div className="qr-code">
+                              <img src={qr} alt="QR Code" />
+                          </div>
+                      </div>
+                  </footer>
     </div>
   );
 };

@@ -27,7 +27,7 @@ function Favourites() {
 
     return (
         <div className="App">
-            <header className="header">
+             <header className="header">
                 <img src={logo} alt="Логотип" className="logo" />
                 <input style={{ width: '500px' }} placeholder='Название товара' type='text' />
                 <div className="button-container">
@@ -37,7 +37,9 @@ function Favourites() {
                     <Link to="/favourites" className=''>
                         <button className="icon-button"><img alt='love' src={icon2} /></button>
                     </Link>
-                    <button className="icon-button"><img alt='store' src={icon3} /></button>
+                    <Link to='/basket' className=''>
+                        <button className="icon-button"><img alt='store' src={icon3} /></button>
+                    </Link>
                 </div>
             </header>
             <nav className="nav">
