@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom'; // Изменено на useNavigate
+import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Slider from 'react-slick';
 import ProductCard from './ProductCard';
 import logo from './images/Используются везде/logo.png';
@@ -20,19 +20,59 @@ import arrow from './images/Используются везде/Arrow.png';
 import './Footer.css';
 
 function Home() {
-    const [isAuthenticated, setIsAuthenticated] = useState(false); // состояние для аутентификации
-    const navigate = useNavigate(); // заменено на useNavigate
+    const [isAuthenticated, setIsAuthenticated] = useState(false);
+    const navigate = useNavigate();
+    const [searchQuery, setSearchQuery] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [products, setProducts] = useState([]);
 
+    // Загрузка данных из базы данных
+    useEffect(() => {
+        fetch('http://localhost:5000/api/products')
+            .then(response => response.json())
+            .then(data => setProducts(data))
+            .catch(error => console.error('Ошибка при загрузке данных:', error));
+    }, []);
+
+    // Обработка навигации
     const handleNavigation = (e) => {
-        // Проверяем, является ли целевой элемент полем поиска
         if (e.target.tagName !== 'INPUT') {
             if (!isAuthenticated) {
-                e.preventDefault(); // предотвращаем стандартное поведение ссылки
-                navigate('/login'); // перенаправляем на страницу входа
+                e.preventDefault();
+                navigate('/login');
             }
         }
     };
 
+    // Поиск товаров
+    const handleSearch = async () => {
+        if (searchQuery.trim() === '') {
+            setSearchResults([]); // Очистка результатов, если запрос пустой
+            return;
+        }
+
+        try {
+            const response = await fetch(`http://localhost:5000/api/search?q=${searchQuery}`);
+            const data = await response.json();
+            setSearchResults(data);
+        } catch (error) {
+            console.error('Ошибка при поиске:', error);
+        }
+    };
+
+    // Обработка изменения поискового запроса
+    const handleInputChange = (e) => {
+        setSearchQuery(e.target.value);
+    };
+
+    // Обработка нажатия Enter
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSearch();
+        }
+    };
+
+    // Настройки слайдера
     const settings = {
         dots: true,
         infinite: true,
@@ -44,20 +84,18 @@ function Home() {
         arrows: true,
     };
 
-    const products = [
-        { id: 1, name: 'Товар 1', price: 1000, image: 'https://via.placeholder.com/200' },
-        { id: 2, name: 'Товар 2', price: 1500, image: 'https://via.placeholder.com/200' },
-        { id: 3, name: 'Товар 3', price: 2000, image: 'https://via.placeholder.com/200' },
-        { id: 4, name: 'Товар 4', price: 2500, image: 'https://via.placeholder.com/200' },
-        { id: 5, name: 'Товар 5', price: 3000, image: 'https://via.placeholder.com/200' },
-        { id: 6, name: 'Товар 6', price: 3500, image: 'https://via.placeholder.com/200' },
-    ];
-
     return (
         <div className="App" onClick={handleNavigation}>
             <header className="header">
                 <img src={logo} alt="Логотип" className="logo" />
-                <input style={{ width: '500px' }} placeholder='Название товара' type='text' />
+                <input 
+                    style={{ width: '500px' }} 
+                    placeholder='Название товара' 
+                    type='text' 
+                    value={searchQuery}
+                    onChange={handleInputChange}
+                    onKeyPress={handleKeyPress} // Обработка нажатия Enter
+                />
                 <div className="button-container">
                     <Link to="/personal" className="icon-button">
                         <img alt='user' src={icon1} />
@@ -97,49 +135,40 @@ function Home() {
                     </Slider>
                 </div>
             </section>
-            <div className='new-products'>
-                <div className="new-products-header">
-                    <h1 className='h1-new'> Новинки </h1>
-                    <div className="more-link-container">
-                        <Link to="/catalog" className="more-link">Еще</Link>
-                        <img src={arrow} alt='Стрелка' className="arrow-icon" />
-                    </div>
-                </div>
-                <div className="product-grid">
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
-            </div>
-            <div className='new-products'>
-                <div className="new-products-header">
-                    <h1 className='h1-new'> Новинки </h1>
-                    <div className="more-link-container">
-                        <Link to="/catalog" className="more-link">Еще</Link>
-                        <img src={arrow} alt='Стрелка' className="arrow-icon" />
-                    </div>
-                </div>
-                <div className="product-grid">
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
-            </div>
-            <div className='new-products'>
-                <div className="new-products-header">
-                    <h1 className='h1-new'> Новинки </h1>
-                    <div className="more-link-container">
-                        <Link to="/novelties" className="more-link">Еще</Link>
-                        <img src={arrow} alt='Стрелка' className="arrow-icon" />
-                    </div>
-                </div>
-                <div className="product-grid">
-                    {products.map(product => (
-                        <ProductCard key={product.id} product={product} />
-                    ))}
-                </div>
-            </div>
 
+            {/* Отображение результатов поиска */}
+            {searchResults.length > 0 && (
+                <div className='new-products'>
+                    <div className="new-products-header">
+                        <h1 className='h1-new'>Результаты поиска</h1>
+                    </div>
+                    <div className="product-grid">
+                        {searchResults.map(product => (
+                            <ProductCard key={product.idItem} product={product} />
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Отображение новинок, если нет результатов поиска */}
+            {searchResults.length === 0 && (
+                <div className='new-products'>
+                    <div className="new-products-header">
+                        <h1 className='h1-new'>Новинки</h1>
+                        <div className="more-link-container">
+                            <Link to="/catalog" className="more-link">Еще</Link>
+                            <img src={arrow} alt='Стрелка' className="arrow-icon" />
+                        </div>
+                    </div>
+                    <div className="product-grid">
+                        {products.map(product => (
+                            <ProductCard key={product.idItem} product={product} />
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            {/* Остальная часть вашего компонента */}
             <div className="about-section">
                 <h1>О нас</h1>
                 <hr />
@@ -213,5 +242,3 @@ function Home() {
 }
 
 export default Home;
-
-
