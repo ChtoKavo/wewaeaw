@@ -164,9 +164,7 @@ const Profile = () => {
           <button onClick={handleFavoritesList} style={styles.actionButton} aria-label="Избранное">
             Избранное
           </button>
-          <button onClick={handlePurchaseHistory} style={styles.actionButton} aria-label="Покупки">
-            Покупки
-          </button>
+          <Link to="/Buy" className="profile-button">Покупки</Link> {/* Ссылка на /Buy */}
         </div>
       </div>
       <footer className="footer">

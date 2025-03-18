@@ -7,7 +7,8 @@ import Favourites from './Favourites';
 import Basket from './basket';
 import Product from './Product';
 import Reg from './reg';
-import Log from './vhod'
+import Log from './vhod';
+import Buy from './Buy';
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/basket" element = {<Basket />} />
             <Route path="/reg" element = {<Reg />} />
             <Route path="/login" element = {<Log />} />
+            <Route path="/Buy" element = {<Buy />} />
             <Route path="/product/:id" element = {<Product />} />
         </Routes>
     );
