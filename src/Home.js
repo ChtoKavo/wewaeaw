@@ -86,6 +86,7 @@ function Home() {
 
     return (
         <div className="App" onClick={handleNavigation}>
+            {/* ------------------------------------------------------------------------------------ */}
             <header className="header">
                 <img src={logo} alt="Логотип" className="logo" />
                 <input 
@@ -120,6 +121,7 @@ function Home() {
                     <li><a href="#sales">Хаты продаж</a></li>
                 </ul>
             </nav>
+            {/* ---------------------------------------------------------------------- */}
             <section className="discount">
                 <div className="slider-container">
                     <Slider {...settings}>
@@ -199,6 +201,8 @@ function Home() {
                 </div>
             </div>
 
+
+            {/* -------------------------------------------------------------------------------- */}
             <footer className="footer">
                 <div className="footer-logo">
                     <img src={logo} alt="logofooter" />
@@ -237,6 +241,7 @@ function Home() {
                     </div>
                 </div>
             </footer>
+            {/* ---------------------------------------------------------- */}
         </div>
     );
 }
