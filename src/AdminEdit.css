@@ -1,0 +1,181 @@
+body {
+    background-color: #CACCC1;
+  }
+  
+  .header {
+    background-color: #B5B5B5;
+    color: white;
+    height: 100px; /* Высота шапки */
+    display: flex;
+    align-items: center; /* Центрирование по вертикали */
+    justify-content: center; /* Центрирование по горизонтали */
+  }
+  
+  .nav-list {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    margin-right: 20px;
+  }
+  
+  .nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    padding: 10px 15px; /* Добавим отступы для лучшего вида */
+    transition: background-color 0.3s ease; /* Плавный эффект при наведении */
+  }
+  
+  .nav-link:hover {
+    background-color: #555; /* Изменение фона при наведении */
+    border-radius: 5px; /* Скругление углов */
+  }
+  
+  /* Контейнеры для данных */
+  .container-wrapper {
+    display: flex;
+    gap: 20px; /* Расстояние между контейнерами */
+    margin: 20px 0 20px 50px; /* Увеличили отступ слева до 50px */
+  }
+  
+  .data-container {
+    width: 950px;
+    height: 750px;
+    background-color: white; /* Фон контейнера */
+    border-radius: 10px; /* Скругление углов */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Тень для красивого вида */
+    padding: 20px; /* Внутренний отступ */
+    overflow-y: auto; /* Добавляем прокрутку, если контент превышает высоту */
+  }
+  
+  /* Стили для второго контейнера */
+  /* Стили для второго контейнера */
+  .side-container {
+    width: 450px;
+    height: 750px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Расстояние между элементами */
+  }
+  
+  /* Стили для инпутов */
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .input-group label {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .input-group input,
+  .input-group textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .input-group textarea {
+    resize: vertical; /* Разрешаем вертикальное изменение размера */
+    min-height: 80px; /* Минимальная высота */
+  }
+  
+  /* Кнопка "Сохранить" */
+  .save-button {
+    padding: 10px 20px;
+    background-color: #28a745; /* Зелёный цвет */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    margin-top: 10px; /* Отступ сверху */
+  }
+  
+  .save-button:hover {
+    background-color: #218838; /* Тёмно-зелёный при наведении */
+  }
+  
+  /* Контейнер для картинки */
+  /* Контейнер для картинки */
+  .image-preview {
+    width: 100%;
+    max-width: 300px; /* Уменьшили ширину */
+    height: 350px; /* Увеличили высоту */
+    border: 2px dashed #ccc; /* Пунктирная рамка */
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Обрезаем изображение, если оно больше контейнера */
+    background-color: #f9f9f9; /* Фон контейнера */
+    margin: 0 auto; /* Центрирование по горизонтали */
+  }
+  
+  .image-preview img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover; /* Сохраняет пропорции изображения */
+  }
+  
+  /* Кнопка для добавления картинки */
+  .upload-button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Синий цвет */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .upload-button:hover {
+    background-color: #0056b3; /* Темно-синий при наведении */
+  }
+  /* Стили для шапки и строк */
+  .table-header,
+  .table-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Разделительная линия */
+  }
+  
+  .table-header {
+    background-color: #f5f5f5; /* Фон шапки */
+    font-weight: bold; /* Жирный текст */
+    border-radius: 5px 5px 0 0; /* Скругление углов шапки */
+  }
+  
+  .table-row:hover {
+    background-color: #f9f9f9; /* Эффект при наведении на строку */
+  }
+  
+  /* Колонки */
+  .column-id,
+  .column-name,
+  .column-price,
+  .column-quantity,
+  .column-actions {
+    flex: 1; /* Равномерное распределение ширины */
+    text-align: center; /* Выравнивание текста по центру */
+  }
+  
+  .column-actions {
+    max-width: 100px; /* Ограничиваем ширину колонки "Редактирование" */
+  }

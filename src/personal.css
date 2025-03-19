@@ -1,107 +1,119 @@
- .profile-container {
-    display: flex; 
-    flex-direction: column; 
-    align-items: center; 
-    height: 100vh;
-    background-color: #F5F9E4; 
-    padding-left: 240px; 
-}  
-
- .profile-box {
+body{
+    background-color: #F5F9E4;
+}
+.content-container {
+    display: flex; /* Размещаем прямоугольник и кнопки в одной строке */
+    align-items: flex-start; /* Выравниваем элементы по верхнему краю */
+  }
+  
+  .rectangle {
     width: 710px;
     height: 540px;
-    background-color: #F9FBEF; 
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px; 
-    display: flex;
-    flex-direction: column; 
-    justify-content: center; 
-    align-items: center; 
-    position: relative; 
-} 
-
-    .profile-content {
-        display: flex; 
-        justify-content: space-between; 
-        width: 100%; 
-        margin-top: 20px; 
-    } 
-
+    background-color: #F9FBEF;
+    margin-top: 50px; /* Отступ сверху */
+    margin-left: 240px; /* Отступ слева */
+  }
+  
+  /* Стили для загрузки аватарки */
 .avatar-upload {
-    position: absolute; 
-    top: 10px; /* Отступ сверху */
-    left: 10px; /* Отступ слева */
-    width: 100px; /* Ширина круга */
-    height: 100px; /* Высота круга */
-    border-radius: 50%; /* Круглая форма */
-    overflow: hidden; /* Скрыть часть изображения, выходящую за пределы круга */
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid #ccc; /* Граница круга */
-    background-color: #e0e0e0; /* Цвет фона круга */
-}
-
-.avatar-upload img {
-    width: 100%; /* Заполнение круга изображением */
-    height: 100%; /* Заполнение круга изображением */
-    object-fit: cover; /* Сохранение пропорций изображения */
-} 
-.file-input {
-    display: none; /* Скрыть стандартный инпут */
-}
-
-.button-box {
-    margin-top: 10px; /* Отступ между кнопками */
-}
-
-
-.action-button:hover, .side-action-button:hover {
-    background-color: #B0B3A1; /* Темнее цвет кнопок при наведении */
-}
-
-.side-actions {
-    display: flex; /* Выравнивание кнопок в строку */
-    gap: 10px; /* Промежуток между кнопками */
-    margin-top: 10px; /* Отступ сверху, если нужно */
-    margin-left: -20px;
-}
-
-.side-action-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #CACCC1; /* Цвет кнопок */
-    color: white; /* Цвет текста */
-    border: none; /* Без границы */
-    border-radius: 4px; /* Закругленные углы */
-    transition: background-color 0.3s; /* Плавный переход для цвета фона */
-    width: 223px; /* Ширина кнопок */
-    height: 60px; /* Высота кнопок */
-}
-
-.error-text {
-    color: red; /* Красный цвет для сообщений об ошибках */
-    margin-top: 10px; /* Отступ сверху */
-    font-size: 14px; /* Размер шрифта для сообщений об ошибках */
-}
-
-.profile-header {
-    font-size: 24px; 
-    margin: 250px 0 0 0; 
-    text-align: left; 
-    width: 100%; 
-    padding-left: 20px; 
-}
-
-.action-buttons {
-    display: flex; 
-    gap: 10px; 
-    margin-top: 20px; 
-}
-
-.small-box {
-    width: 223px; 
-    height: 60px; 
-    background-color: #CACCC1; 
-}
-
+    position: absolute;
+    top: 20px; /* Отступ сверху внутри прямоугольника */
+    left: 20px; /* Отступ слева внутри прямоугольника */
+  }
+  
+  .avatar-label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Делаем круг */
+    background-color: #ccc; /* Цвет фона */
+    cursor: pointer; /* Курсор в виде указателя */
+    overflow: hidden; /* Обрезаем изображение, если оно выходит за границы */
+    border: 2px solid #fff; /* Белая рамка */
+  }
+  
+  .avatar-label span {
+    font-size: 24px;
+    color: #fff; /* Цвет плейсхолдера */
+  }
+  
+  .avatar-preview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Изображение заполняет круг */
+  }
+  
+  /* Стили для маленьких прямоугольников */
+  .small-rectangles-container {
+    position: absolute;
+    top: 140px; /* Отступ сверху от аватарки */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Смещаем на половину ширины */
+    display: flex;
+    gap: 10px; /* Отступ между прямоугольниками */
+  }
+  
+  .small-rectangle {
+    width: 223px;
+    height: 50px;
+    background-color: #CACCC1; /* Новый цвет */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 8px; /* Закругленные углы */
+  }
+  
+  /* Стили для кнопок под прямоугольниками */
+  .buttons-below-container {
+    position: absolute;
+    top: 210px; /* Отступ сверху от маленьких прямоугольников */
+    left: 50%; /* Центрируем по горизонтали */
+    transform: translateX(-50%); /* Смещаем на половину ширины */
+    display: flex;
+    flex-direction: column; /* Располагаем кнопки в столбик */
+    gap: 10px; /* Отступ между кнопками */
+  }
+  
+  .large-button {
+    width: 446px;
+    height: 50px;
+    background-color: #CACCC1; /* Новый цвет */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 8px; /* Закругленные углы */
+    font-size: 16px; /* Размер текста */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+  }
+  
+  .large-button:hover {
+    background-color: #b0b2a7; /* Изменение фона при наведении */
+  }
+  
+  /* Стили для кнопок справа от прямоугольника */
+  .buttons-right-container {
+    position: absolute;
+    top: 270px; /* Опускаем на 100px вниз (было 90px, стало 190px) */
+    left: 970px; /* Отступ слева от основного прямоугольника */
+    display: flex;
+    gap: 10px; /* Отступ между кнопками */
+  }
+  
+  .profile-button {
+    width: 233px; /* Ширина кнопки */
+    height: 50px; /* Высота кнопки */
+    background-color: #CACCC1; /* Новый цвет */
+    border: 1px solid #ccc; /* Граница */
+    border-radius: 8px; /* Закругленные углы */
+    font-size: 16px; /* Размер текста */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background-color 0.3s ease; /* Плавное изменение фона */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* Убираем подчеркивание у ссылки */
+    color: inherit; /* Наследуем цвет текста */
+  }
+  
+  .profile-button:hover {
+    background-color: #b0b2a7; /* Изменение фона при наведении */
+  }
