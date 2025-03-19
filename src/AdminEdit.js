@@ -1,140 +1,128 @@
-import React, { useState } from 'react'; // Импортируем useState
+import React, { useState } from 'react';
 import './AdminEdit.css';
 import { Link } from 'react-router-dom';
 
 function AdminEdit() {
-  // Состояние для хранения выбранного изображения
   const [selectedImage, setSelectedImage] = useState(null);
 
-  // Функция для обработки выбора файла
   const handleImageUpload = (event) => {
-    const file = event.target.files[0]; // Получаем выбранный файл
+    const file = event.target.files[0];
     if (file) {
-      const reader = new FileReader(); // Создаем FileReader для чтения файла
+      const reader = new FileReader();
       reader.onloadend = () => {
-        setSelectedImage(reader.result); // Устанавливаем изображение в состояние
+        setSelectedImage(reader.result);
       };
-      reader.readAsDataURL(file); // Читаем файл как Data URL
+      reader.readAsDataURL(file);
     }
   };
 
   return (
     <div>
-      <header className="header">
-        <nav className="nav">
-          <ul className="nav-list">
-            <li className="nav-item">
-              <Link to="/AdminItem" className="nav-link">Управление товаром</Link>
+      <header className="admin-edit-header">
+        <nav className="admin-edit-nav">
+          <ul className="admin-edit-nav-list">
+            <li className="admin-edit-nav-item">
+              <Link to="/item" className="admin-edit-nav-link">Управление товаром</Link>
             </li>
-            <li className="nav-item">
-              <Link to="/AdminEdit" className="nav-link">Редактирование товара</Link>
+            <li className="admin-edit-nav-item">
+              <Link to="/edit" className="admin-edit-nav-link">Редактирование товара</Link>
             </li>
-            <li className="nav-item">
-              <Link to="/AdminUser" className="nav-link">Пользователи</Link>
+            <li className="admin-edit-nav-item">
+              <Link to="/user" className="admin-edit-nav-link">Пользователи</Link>
             </li>
-            <li className="nav-item">
-              <Link to="/vhod" className="nav-link">Выход</Link>
+            <li className="admin-edit-nav-item">
+              <Link to="/vhod" className="admin-edit-nav-link">Выход</Link>
             </li>
           </ul>
         </nav>
       </header>
 
-      {/* Обертка для контейнеров */}
-      <div className="container-wrapper">
-        {/* Основной контейнер для данных */}
-        <div className="data-container">
-          {/* Шапка таблицы */}
-          <div className="table-header">
-            <div className="column-id">Id товара</div>
-            <div className="column-name">Имя товара</div>
-            <div className="column-price">Цена</div>
-            <div className="column-quantity">Количество</div>
-            <div className="column-actions">Редактирование</div>
+      <div className="admin-edit-container-wrapper">
+        <div className="admin-edit-data-container">
+          <div className="admin-edit-table-header">
+            <div className="admin-edit-column-id">Id товара</div>
+            <div className="admin-edit-column-name">Имя товара</div>
+            <div className="admin-edit-column-price">Цена</div>
+            <div className="admin-edit-column-quantity">Количество</div>
+            <div className="admin-edit-column-actions">Редактирование</div>
           </div>
 
-          {/* Пример строки с данными */}
-          <div className="table-row">
-            <div className="column-id">1</div>
-            <div className="column-name">Товар 1</div>
-            <div className="column-price">1000 ₽</div>
-            <div className="column-quantity">10</div>
-            <div className="column-actions">
-              <button className="edit-button">Редактировать</button>
+          <div className="admin-edit-table-row">
+            <div className="admin-edit-column-id">1</div>
+            <div className="admin-edit-column-name">Товар 1</div>
+            <div className="admin-edit-column-price">1000 ₽</div>
+            <div className="admin-edit-column-quantity">10</div>
+            <div className="admin-edit-column-actions">
+              <button className="admin-edit-edit-button">Редактировать</button>
             </div>
           </div>
 
-          {/* Ещё одна строка для примера */}
-          <div className="table-row">
-            <div className="column-id">2</div>
-            <div className="column-name">Товар 2</div>
-            <div className="column-price">1500 ₽</div>
-            <div className="column-quantity">5</div>
-            <div className="column-actions">
-              <button className="edit-button">Редактировать</button>
+          <div className="admin-edit-table-row">
+            <div className="admin-edit-column-id">2</div>
+            <div className="admin-edit-column-name">Товар 2</div>
+            <div className="admin-edit-column-price">1500 ₽</div>
+            <div className="admin-edit-column-quantity">5</div>
+            <div className="admin-edit-column-actions">
+              <button className="admin-edit-edit-button">Редактировать</button>
             </div>
           </div>
         </div>
 
-        {/* Второй контейнер */}
-        <div className="side-container">
-          {/* Место для картинки */}
-          <div className="image-preview">
+        <div className="admin-edit-side-container">
+          <div className="admin-edit-image-preview">
             {selectedImage ? (
-              <img src={selectedImage} alt="Превью товара" /> // Отображаем выбранное изображение
+              <img src={selectedImage} alt="Превью товара" />
             ) : (
-              <span>Выберите изображение</span> // Сообщение, если изображение не выбрано
+              <span>Выберите изображение</span>
             )}
           </div>
 
-          {/* Кнопка для добавления картинки */}
-          <label className="upload-button">
+          <label className="admin-edit-upload-button">
             Добавить изображение
             <input
               type="file"
-              accept="image/*" // Разрешаем только изображения
-              style={{ display: 'none' }} // Скрываем стандартный input
-              onChange={handleImageUpload} // Обработчик выбора файла
+              accept="image/*"
+              style={{ display: 'none' }}
+              onChange={handleImageUpload}
             />
           </label>
 
-          {/* Инпуты для ввода данных */}
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Название</label>
             <input type="text" placeholder="Введите название" />
           </div>
 
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Возраст</label>
             <input type="text" placeholder="Введите возраст" />
           </div>
 
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Жанр</label>
             <input type="text" placeholder="Введите жанр" />
           </div>
 
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Количество игроков</label>
             <input type="text" placeholder="Введите количество игроков" />
           </div>
 
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Время игры</label>
             <input type="text" placeholder="Введите время игры" />
           </div>
 
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Описание</label>
             <textarea placeholder="Введите описание"></textarea>
           </div>
 
-          <div className="input-group">
+          <div className="admin-edit-input-group">
             <label>Цена</label>
             <input type="text" placeholder="Введите цену" />
           </div>
 
-          {/* Кнопка "Сохранить" */}
-          <button className="save-button">Сохранить</button>
+          <button className="admin-edit-save-button">Сохранить</button>
         </div>
       </div>
     </div>

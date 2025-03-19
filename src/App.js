@@ -9,6 +9,9 @@ import Product from './Product';
 import Reg from './reg';
 import Log from './vhod';
 import Buy from './Buy';
+import AdminUser from './AdminUser';
+import AdminItem from './AdminItem';
+import AdminEdit from './AdminEdit';
 
 function App() {
     return (
@@ -21,6 +24,9 @@ function App() {
             <Route path="/reg" element = {<Reg />} />
             <Route path="/login" element = {<Log />} />
             <Route path="/Buy" element = {<Buy />} />
+            <Route path="/user" element = {<AdminUser />} />
+            <Route path="/item" element = {<AdminItem />} />
+            <Route path="/edit" element = {<AdminEdit />} />
             <Route path="/product/:id" element = {<Product />} />
         </Routes>
     );

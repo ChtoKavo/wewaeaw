@@ -128,7 +128,8 @@ const Profile = () => {
         {/* Кнопки справа от прямоугольника */}
         <div className="buttons-right-container">
           <button className="profile-button">Редактировать профиль</button>
-          <Link to="" className="profile-button">Избранное</Link>
+          <Link to="/favourites" className="profile-button">Избранное</Link>
+          <Link to="/user" className="profile-button">Админ</Link>
           <Link to="/Buy" className="profile-button">Покупки</Link>
         </div>
       </div>
